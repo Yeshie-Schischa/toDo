@@ -2,15 +2,20 @@
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        
+        <div id="note-contanier"></div>
         <button id="add">&plus;</button>
         <form>
+            <label for="title">Title</label>
             <input type="text" name="title">
+            <label for="body">Body</label>
             <textarea id="nBody"></textarea>
-            <button id="save">Save</button>
+            <button id="save" type="button">Save</button>
         </form>
+        <p id="succesMsg">Your note has been saved succesfuly</p>
+        
         <p id="view"></p>
         <script src="index.js"></script>
     </body>
