@@ -23,18 +23,18 @@ saveBtn.addEventListener("click", () => {
      setTimeout(() => {
         succesMsg.style.display = "none"
      }, 2000)
-     
-      notes = document.querySelectorAll(".note");
-      console.log(notes)
-      notes.forEach((each, index) => {
-        each.addEventListener("dblclick", () => {
-          allNotes.splice(index, 1);
-          noteContanier.innerHTML = viewNotes(allNotes)
-          console.log(each, index)
-        })
-      })
     })
+
+noteContanier.addEventListener("dblclick", (e) =>{
+  console.log(e.target.closest(".note"))
+  allNotes.splice(e.target.closest(".note").id.slice(1), 1)
+  noteContanier.innerHTML = viewNotes(allNotes)
+
+  console.log(e.target.getAttribute("class"))
+  //allNotes.splice(e.target.id.slice(1), 1)
+  //noteContanier.innerHTML = viewNotes(allNotes)
+})
 const viewNotes = (arr) => {
-  return arr.map(each => `<div class="note"><h2>${each.title}</h2><p>${each.body}</p><input type="checkbox" ${each.checked ? "checked" : ""}><span>${each.time}</span></div>`).join("")
+  return arr.map((each, index, array) => `<div id="a${index}" class="note"><h2>${each.title}</h2><p>${each.body}</p><input type="checkbox" ${each.checked ? "checked" : ""}><span class="menu">burget</span>☰<span class="time">${each.time}</span></div>`).join("")
 }
 console.log(allNotes);
