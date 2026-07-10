@@ -60,7 +60,7 @@ input, textarea {
 }
 .note {
     background-color: aquamarine;
-    padding: 10px;
+    padding: 10px 10px 10px 37px;
     margin: 10px;
     border-radius: 5px;
     position: relative;
@@ -75,7 +75,7 @@ input, textarea {
 .note input[type="checkbox"] {
     position: absolute;
     top: 13px;
-    right: 10px;
+    left: 10px;
 }
 .note h2 {
     margin: 0;
@@ -87,10 +87,10 @@ input, textarea {
 }
 .note .time {
     position: absolute;
-    bottom: 10px;
+    bottom: 7px;
     right: 10px;
-    font-size: 0.8em;
-    color: gray;
+    font-size: 0.6em;
+    color: rgb(0, 0, 0);
 }
 .note .menu {
     position: absolute;
@@ -99,4 +99,22 @@ input, textarea {
     right: 10px;
     font-size: 0.8em;
     color: gray;
+}
+.note-menu {
+    list-style-type: none;
+    padding: 20px;
+    background-color: aliceblue;
+    
+}
+.note-menu li {
+  display: block;
+  padding: 5px;
+  border: 0.5px solid black;
+  border-top: none;
+}
+.note-menu li:first-child {
+  border-top: 0.5px solid black;
+}
+.hide {
+  display: none;
 }

@@ -29,12 +29,14 @@ noteContanier.addEventListener("dblclick", (e) =>{
   console.log(e.target.closest(".note"))
   allNotes.splice(e.target.closest(".note").id.slice(1), 1)
   noteContanier.innerHTML = viewNotes(allNotes)
-
-  console.log(e.target.getAttribute("class"))
-  //allNotes.splice(e.target.id.slice(1), 1)
-  //noteContanier.innerHTML = viewNotes(allNotes)
 })
 const viewNotes = (arr) => {
-  return arr.map((each, index, array) => `<div id="a${index}" class="note"><h2>${each.title}</h2><p>${each.body}</p><input type="checkbox" ${each.checked ? "checked" : ""}><span class="menu">burget</span>☰<span class="time">${each.time}</span></div>`).join("")
+ return  arr.map((each, index, array) => `<div id="a${index}" class="note"><h2>${each.title}</h2><p>${each.body}</p><input type="checkbox" ${each.checked ? "checked" : ""}><span class="menu">☰</span><span class="time">${each.time}</span></div>`).join("")
 }
-console.log(allNotes);
+noteContanier.addEventListener("click", (e) => {
+if(e.target.closest(".menu")) {
+  const noteMenu = document.querySelector(".note-menu");
+  console.log(noteMenu)
+  noteMenu.classList.toggle("hide")
+}
+})
