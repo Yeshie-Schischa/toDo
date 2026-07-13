@@ -20,13 +20,15 @@
             <input type="checkbox" ${each.checked ? "checked" : ""}>
             <div class="menu">
               <span>☰</span>
+               <ul class="menu-list">
+                <li class="edit">Edit</li>
+                <li class="delete">Delete</li>
+                <li class="cancel">Cancel</li>
+               </ul>
             </div>
-            <span class="time">${each.time}</span>
+           <span class="time">${each.time}</span>
           </div>
-          <ul class="menu-list">
-            <li class="edit">Edit</li>
-            <li class="delete">Delete</li>
-        </ul>
+          
         <p id="succesMsg">Note&nbsp;saved&nbsp;successfully</p>
         <script src="index.js"></script>
     </body>
