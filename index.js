@@ -5,6 +5,11 @@ const allNotes = [];
 const succesMsg = document.getElementById("succesMsg");
 const noteContanier = document.getElementById("note-contanier")
 let notes;
+const createOptions = document.createElement("ul");
+createOptions.appendChild(document.createElement("li")).innerHTML = "Edit";
+createOptions.appendChild(document.createElement("li")).innerHTML = "Delete";
+createOptions.classList.add("note-menu")
+
 add.addEventListener("click", () => {
   form.style.display = "flex"
 })
@@ -25,18 +30,17 @@ saveBtn.addEventListener("click", () => {
      }, 2000)
     })
 
-noteContanier.addEventListener("dblclick", (e) =>{
+noteContanier.addEventListener("adsf", (e) =>{
   console.log(e.target.closest(".note"))
   allNotes.splice(e.target.closest(".note").id.slice(1), 1)
   noteContanier.innerHTML = viewNotes(allNotes)
 })
 const viewNotes = (arr) => {
- return  arr.map((each, index, array) => `<div id="a${index}" class="note"><h2>${each.title}</h2><p>${each.body}</p><input type="checkbox" ${each.checked ? "checked" : ""}><span class="menu">☰</span><span class="time">${each.time}</span></div>`).join("")
+ return  arr.map((each, index, array) => `<div id="a${index}" class="note"><h2>${each.title}</h2><p>${each.body}</p><input type="checkbox" ${each.checked ? "checked" : ""}><div class="menu"><span>☰</span><div class="positioned"></div></div><span class="time">${each.time}</span></div>`).join("")
 }
 noteContanier.addEventListener("click", (e) => {
 if(e.target.closest(".menu")) {
-  const noteMenu = document.querySelector(".note-menu");
-  console.log(noteMenu)
-  noteMenu.classList.toggle("hide")
+  console.log(e.target.lastChild)
+  e.target.lastChild.appendChild(createOptions)
 }
 })

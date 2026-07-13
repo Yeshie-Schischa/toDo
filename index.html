@@ -14,9 +14,18 @@
             <textarea id="nBody" name="body"></textarea>
             <button id="save" type="button">Save</button>
         </form>
-        <ul class="note-menu">
-            <li id="delete">Delete</li>
-            <li id="edit">Edit</li>
+        <div id="a${index}" class="note">
+            <h2>${each.title}</h2>
+            <p>${each.body}</p>
+            <input type="checkbox" ${each.checked ? "checked" : ""}>
+            <div class="menu">
+              <span>☰</span>
+            </div>
+            <span class="time">${each.time}</span>
+          </div>
+          <ul class="menu-list">
+            <li class="edit">Edit</li>
+            <li class="delete">Delete</li>
         </ul>
         <p id="succesMsg">Note&nbsp;saved&nbsp;successfully</p>
         <script src="index.js"></script>
