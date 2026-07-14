@@ -61,9 +61,14 @@ input, textarea {
 .note {
     background-color: aquamarine;
     padding: 10px 10px 10px 37px;
-    margin: 10px;
+    margin: 10px auto;
     border-radius: 5px;
     position: relative;
+    max-width: 400px;
+
+}
+.note:hover, .clicked {
+    background-color: rgb(52, 255, 187);
 }
 #save {
     background-color: aquamarine;
@@ -87,38 +92,29 @@ input, textarea {
 }
 .note .time {
     position: absolute;
-    bottom: 7px;
+    top: 7px;
     right: 10px;
     font-size: 0.6em;
     color: rgb(0, 0, 0);
 }
 .note .menu {
     position: absolute;
-    bottom: 50%;
+    bottom: 27%;
     transform: translate(-50%);
     right: 10px;
     font-size: 0.8em;
-    color: gray;
+    color: black;
+    
+    z-index: 2;
 }
-.note-menu {
-    list-style-type: none;
-    padding: 20px;
-    background-color: aliceblue;
-    display: block;
-   
+.note .menu span {
+    display: none;
+}
+.note:hover .menu span, .viewit{
+    display: inline-block;
+    transform: scaleX(2);
 }
 
-.note-menu li:first-child {
-  border-top: 0.5px solid black;
-}
-.show {
-  display: block;
-}
-.postioned {
-  position: absolute;
-  top: 0;  
-  right: 0;
-}
 .menu-list {
   position: absolute;
   top: 7px;
@@ -127,6 +123,7 @@ input, textarea {
   max-width: 200px;
   z-index: 100;
   border-radius: 10px;
+  display: none;
 }
 .menu-list li {
   background-color: aliceblue;
@@ -135,3 +132,6 @@ input, textarea {
   border: 0.5px solid black;
   border-top: none;
 } 
+.menu-list li:first-child {
+    border-top: 0.5px solid black;
+}
