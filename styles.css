@@ -24,11 +24,7 @@ input, textarea {
     border-radius: 5px;
     border: none;
 }
-#view {
-    width: 100px;
-    height: 100px;
-    background-color: aquamarine;
-}
+
 #succesMsg {
     display: none;
     background-color: gray;
@@ -67,9 +63,10 @@ input, textarea {
     max-width: 400px;
 
 }
-.note:hover, .clicked {
+ .note:hover, .clicked {
     background-color: rgb(52, 255, 187);
-}
+    
+} 
 #save {
     background-color: aquamarine;
     border: none;
@@ -109,7 +106,9 @@ input, textarea {
 }
 .note .menu span {
     display: none;
+    transition: transform 0.3s ease-in-out;
 }
+
 .note:hover .menu span, .viewit{
     display: inline-block;
     transform: scaleX(2);

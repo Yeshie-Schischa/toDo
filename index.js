@@ -54,12 +54,45 @@ if(e.target.closest(".menu")) {
   e.target.lastChild.appendChild(createOptions)
 }
 })*/
+ let hasViewit = false;
+ let isMenuListBlock = false;
+ let isSpanDisplayInlineBlock = false;
 noteContanier.addEventListener("click", (e) => {
-  if(e.target.closest(".menu")) {
+
+ 
+
+
+
+  if(e.target.closest(".menu") && hasViewit === false && isMenuListBlock === false) {
     e.target.closest(".menu").parentElement.classList.add("clicked")
     e.target.closest(".menu").querySelector("span").classList.add("viewit")
-    console.log(e.target.closest(".menu").querySelector("span").style.display)
     e.target.closest(".menu").querySelector(".menu-list").style.display = "block"
-    
+
+    hasViewit = true;
+    isMenuListBlock = true;
+    isSpanDisplayInlineBlock = true;
+   
+    return;
+  } 
+ if(e.target.closest(".menu") && hasViewit === true && isMenuListBlock === true) {
+     e.target.closest(".menu").parentElement.classList.remove("clicked")
+     e.target.closest(".menu").querySelector("span").classList.remove("viewit")
+     e.target.closest(".menu").querySelector(".menu-list").style.display = "none"
+    //  e.target.closest(".menu").querySelector("span").style.display = "none"
+
+     hasViewit = false;
+     isMenuListBlock = false;
+     isSpanDisplayInlineBlock = false;
+  }
+})
+document.addEventListener("click", (e) => {
+  if(e.target.closest(".menu") === null && hasViewit === true && isMenuListBlock === true) {
+    document.querySelector(".clicked").classList.remove("clicked")
+    document.querySelector(".viewit").classList.remove("viewit")
+    document.querySelector(".menu-list").style.display = "none"
+    document.querySelector(".menu span").style.display = "none"
+    hasViewit = false;
+    isMenuListBlock = false;
+    isSpanDisplayInlineBlock = false;
   }
 })
